@@ -31,19 +31,19 @@ gulp.task('watch', function () {
 /*
  * カスタム設定
  * */
-gulp.task('common:before', function() {
-	console.log("common:before");
+gulp.task('common:before', function(cb) {
+	runSequence(
+		/* ここに共通タスクネーム記述 */
+		cb);
 });
 
 gulp.task('deploy', function(cb) {
-	console.log("deploy");
 	runSequence('common:before',
 		/* ここにdeploy専用タスクネーム記述 */
 		cb);
 });
 
 gulp.task('release', function(cb) {
-	console.log("release");
 	runSequence(
 		'common:before',
 		'clean:allRelease',
