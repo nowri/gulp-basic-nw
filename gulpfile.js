@@ -1,5 +1,5 @@
 /*
- * 初期設定
+ * Initial setting
  * */
 var gulp = require('gulp');
 var watch = require('gulp-watch');
@@ -29,17 +29,17 @@ gulp.task('watch', function () {
 });
 
 /*
- * カスタム設定
+ * Custom setting
  * */
 gulp.task('common:before', function(cb) {
 	runSequence(
-		/* ここに共通タスクネーム記述 */
+		/* Common tasks here */
 		cb);
 });
 
 gulp.task('deploy', function(cb) {
 	runSequence('common:before',
-		/* ここにdeploy専用タスクネーム記述 */
+		/* Deploy tasks here */
 		cb);
 });
 
@@ -48,7 +48,7 @@ gulp.task('release', function(cb) {
 		'common:before',
 		'clean:allRelease',
 		'copy:toRelease',
-		/* ここにrelease専用タスクネーム記述 */
+		/* Release tasks here */
 		cb);
 });
 
